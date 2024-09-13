@@ -1,0 +1,188 @@
+body {
+    background-image: url('/istockphoto-454866741-612x612.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%; /* Adjust as needed */
+    color: white; /* Text color on top of the background */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.navbar {
+    background-color: #171109; /* Semi-transparent black navbar background */
+    width: 100%;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-logo {
+    height: 90px; /* Adjust the height as needed */
+}
+.nav-link {
+    color: white; /* Text color on the navbar */
+}
+
+.nav-link:hover {
+    color: #ffc107; /* Change color on hover */
+}
+
+.dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.7); /* Match dropdown menu background with navbar */
+}
+.dropdown-item {
+    color: white; /* Custom color for the dropdown items */
+}
+
+.dropdown-item:hover {
+    color: #ffc107; /* Change color on hover */
+    background-color: rgba(0, 0, 0, 0.5); /* Light background on hover */
+}
+
+.content {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for readability */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+}
+
+
+/* styles.css */
+
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Royal Black Background */
+    color: #f8f9fa; /* Light text color for contrast */
+    margin: 0;
+    padding: 0;
+}
+
+/* Main Container Styling */
+.container {
+    padding: 20px;
+}
+
+/* Card Styling */
+.card {
+    border: 1px solid #ffd700; /* Gold border */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.4); /* Gold shadow */
+    background-color: #1a1a1a; /* Dark background for cards */
+    margin-bottom: 20px; /* Space between cards */
+    transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out; /* Smooth transition */
+}
+
+.card:hover {
+    box-shadow: 0 6px 12px rgba(255, 215, 0, 0.6); /* Enhanced shadow on hover */
+    border-color: #ffc107; /* Slightly darker gold on hover */
+}
+
+.card-img-top {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    object-fit: cover;
+    height: 200px; /* Fixed height for images */
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffd700; /* Gold color for titles */
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #e0e0e0; /* Light gray text for better readability */
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #ffd700; /* Gold background */
+    border: 2px solid #ffd700; /* Gold border */
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    color: #000000; /* Black text */
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Dark shadow for buttons */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.btn-primary:hover {
+    background-color: #ffc107; /* Slightly darker gold on hover */
+    border-color: #ffc107;
+    color: #000000; /* Black text */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Darker shadow on hover */
+}
+
+/* Page Header Styling */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #ffd700; /* Gold color for headers */
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+}
+
+/* Transparent Footer Styles */
+.transparent-footer {
+    background: #171109; /* Semi-transparent background */
+    color: #ffffff; /* White text color */
+  }
+  
+  .transparent-footer h5 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+  .transparent-footer p, .transparent-footer address {
+    font-size: 14px;
+  }
+  
+  .transparent-footer a {
+    color: #ededed; /* Ensure all links are white */
+    text-decoration: none;
+  }
+  
+  .transparent-footer a:hover {
+    color: #171109; /* Optional: Change link color on hover */
+    text-decoration: underline;
+  }
+  
+  .transparent-footer .list-unstyled {
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .transparent-footer .list-unstyled li {
+    margin-bottom: 10px;
+  }
+  
+  .transparent-footer .list-unstyled li a {
+    display: block;
+  }
+  
+  .transparent-footer .container .row.mt-3 {
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Semi-transparent border */
+    padding-top: 15px;
+  }
+  
+  .transparent-footer .container .row.mt-3 p {
+    margin-bottom: 0;
+  }

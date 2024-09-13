@@ -1,0 +1,195 @@
+body {
+    overflow-x: hidden;
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    width: 100%; /* Adjust as needed */
+    color: white; /* Text color on top of the background */
+    font-family: Georgia, 'Times New Roman', Times, serif;}
+.navbar {
+    background-color: #171109; /* Semi-transparent black navbar background */
+    width: 100%;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-logo {
+    height: 90px; /* Adjust the height as needed */
+}
+.nav-link {
+    color: white; /* Text color on the navbar */
+}
+
+.nav-link:hover {
+    color: #ffc107; /* Change color on hover */
+}
+
+
+   
+    .dropdown:hover .dropdown-toggle {
+        color: #ffc107;
+    /* Match dropdown menu background with navbar */
+}
+
+dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.7); /* Match dropdown menu background with navbar */
+}
+.bio-section {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.container{
+display: flex;
+justify-content: space-around;
+align-items: center;
+padding-top:4rem;
+
+
+}
+.container.hero-pic{
+
+    width: 300px;
+    height: 300px;
+    border-radius: 50% ;
+    overflow: hidden;
+    border: #8b8686;
+    box-shadow: 5px 7px 25px rgb(0, 0, 0);
+     
+}
+
+.hero-pic img{ 
+
+    height:50%;
+    width: 60%;
+    transition: 0.5s;
+    border-radius: 2px solid grey ;
+    margin-bottom: 20px;
+
+}
+.hero-pic img:hover{
+    transform: scale(1.2);
+margin-bottom: 20px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top:4rem;
+    
+    
+    }
+
+    .container.bing-pic{
+
+        width: 300px;
+        height: 300px;
+        border-radius: 50% ;
+        overflow: hidden;
+        border: #8b8686;
+        box-shadow: 5px 7px 25px rgb(0, 0, 0);
+         
+    }
+
+
+
+
+.bing-pic img{ height:300pz;
+    width: 325px;
+    transition: 0.5s;
+    border-radius: 2px solid rgb(138, 127, 127) ;
+    margin-bottom: 20px;
+    margin-right: 20pc;
+   
+    }
+
+.bing-pic img:hover{ transform: scale(1.1);
+    margin-bottom: 20px;}
+    .bing-text{
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        margin-left: 0.5pc;
+        margin-bottom: 20px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .container{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-top:4rem;
+        
+        
+        }
+    
+        .container.aziz-pic{
+    
+            width: 300px;
+            height: 300px;
+            border-radius: 50% ;
+            overflow: hidden;
+            border: #8b8686;
+            box-shadow: 5px 7px 25px rgb(0, 0, 0);
+             
+        }
+    
+    
+    
+    
+    .aziz-pic img{ height:300pz;
+        width: 325px;
+        transition: 0.5s;
+        border-radius: 2px solid rgb(138, 127, 127) ;
+        margin-bottom: 20px;
+        margin-right: 20pc;
+       
+        }
+    
+    .aziz-pic img:hover{ transform: scale(1.1);
+        margin-bottom: 20px;}
+        .aziz-text{
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            margin-left: 0.5pc;
+            margin-bottom: 20px;
+        }
+        
+        .transparent-footer {
+            background: #171109;
+            color: #ffffff;
+        }
+
+        .transparent-footer h5 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .transparent-footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .transparent-footer a:hover {
+            text-decoration: underline;
+        }

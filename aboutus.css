@@ -1,0 +1,148 @@
+body {
+    background-image: url('/istockphoto-454866741-612x612.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%; /* Adjust as needed */
+    color: white; /* Text color on top of the background */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.navbar {
+    background-color: #171109; /* Semi-transparent black navbar background */
+    width: 100%;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-logo {
+    height: 90px; /* Adjust the height as needed */
+}
+.nav-link {
+    color: white; /* Text color on the navbar */
+}
+
+.nav-link:hover {
+    color: #ffc107; /* Change color on hover */
+}
+
+.dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.7); /* Match dropdown menu background with navbar */
+}
+.dropdown-item {
+    color: white; /* Custom color for the dropdown items */
+}
+
+.dropdown-item:hover {
+    color: #ffc107; /* Change color on hover */
+    background-color: rgba(0, 0, 0, 0.5); /* Light background on hover */
+}
+
+.content {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for readability */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.hero-section {
+    background-color: #000;
+    color: #ffd700;
+    padding: 60px 0;
+    text-align: center;
+}
+.mission-section {
+    background-color: #1c1c1c;
+    color: #ffd700;
+    padding: 60px 0;
+}
+.biography-section {
+    background-color: #000;
+    color: #ffd700;
+    padding: 60px 0;
+}
+.biography-card {
+    background-color: #1c1c1c;
+    border: 1px solid #ffd700;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.biography-card img {
+    border: 1px solid #ffd700;
+    border-radius: 10px;
+}
+.projects-section {
+    background-color: #000;
+    color: #ffd700;
+    padding: 60px 0;
+}
+.project-card {
+    background-color: #1c1c1c;
+    border: 1px solid #ffd700;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.project-card img {
+    border: 1px solid #ffd700;
+    border-radius: 10px;
+}
+.cta-section {
+    background-color: #1c1c1c;
+    color: #ffd700;
+    padding: 60px 0;
+    text-align: center;
+}
+
+/* Transparent Footer Styles */
+.transparent-footer {
+    background: #171109; /* Semi-transparent background */
+    color: #ffffff; /* White text color */
+  }
+  
+  .transparent-footer h5 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+  .transparent-footer p, .transparent-footer address {
+    font-size: 14px;
+  }
+  
+  .transparent-footer a {
+    color: #ededed; /* Ensure all links are white */
+    text-decoration: none;
+  }
+  
+  .transparent-footer a:hover {
+    color: #171109; /* Optional: Change link color on hover */
+    text-decoration: underline;
+  }
+  
+  .transparent-footer .list-unstyled {
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .transparent-footer .list-unstyled li {
+    margin-bottom: 10px;
+  }
+  
+  .transparent-footer .list-unstyled li a {
+    display: block;
+  }
+  
+  .transparent-footer .container .row.mt-3 {
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Semi-transparent border */
+    padding-top: 15px;
+  }
+  
+  .transparent-footer .container .row.mt-3 p {
+    margin-bottom: 0;
+  }

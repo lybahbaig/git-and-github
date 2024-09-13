@@ -1,0 +1,808 @@
+
+            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #000000;
+            color: white;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .navbar {
+            background-color: #171109;
+        }
+
+        .navbar-brand img {
+            height: 85px;
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffc107;
+        }
+
+        .dropdown-menu {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .dropdown-item {
+            color: white;
+        }
+
+        .dropdown-item:hover {
+            background-color: #ffc107;
+            color: black;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .dropdown:hover .dropdown-toggle {
+            color: #ffc107;
+        }
+
+        .content {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .card {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .accordion-item {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .accordion-button {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: #ffc107;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-item {
+            height: 500px;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .carousel-caption {
+            color: WHITE;
+        }
+
+        .carousel-indicators [data-bs-target] {
+            background-color: #ffc107;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: #000;
+        }
+
+        .welcome-text {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+        }
+
+        .welcome-text h1 {
+            color: #ffc107;
+            font-size: 3rem;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .welcome-text p {
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .new-card {
+            width: 280px;
+            height: 360px;
+            border-radius: 15px;
+            padding: 1.5rem;
+            background: black;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            transition: 0.4s ease-out;
+            box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+
+        .new-card:hover {
+            transform: translateY(-20px);
+        }
+
+        .new-card:hover:before {
+            opacity: 1;
+        }
+
+        .new-card:hover .info {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+        .new-card:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2;
+            transition: 0.5s;
+            opacity: 0;
+        }
+
+        .new-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 15px;
+            opacity: 0.8;
+        }
+
+        .new-card .info {
+            position: relative;
+            z-index: 4;
+            color: white;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.5s;
+        }
+
+        .new-card .info h1 {
+            margin: 0;
+            color: #ffc107;
+        }
+
+        .new-card .info p {
+            letter-spacing: 1px;
+            font-size: 15px;
+            margin-top: 8px;
+        }
+
+        .new-card .info button {
+            padding: 0.6rem;
+            outline: none;
+            border: none;
+            border-radius: 3px;
+            background: #ffc107;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.4s ease;
+        }
+
+        .new-card .info button:hover {
+            background: white;
+            color: black;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .heading-center {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            overflow-x: auto;
+        }
+
+        .video-card {
+            width: 280px;
+            border-radius: 25px;
+            background: black;
+            color: white;
+            overflow: hidden;
+            box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease-out;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .video-card iframe {
+            width: 100%;
+            height: 160px;
+            border: none;
+            object-fit: cover;
+        }
+
+        .video-card:hover {
+            transform: translateY(-20px);
+        }
+
+        .video-card .info {
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+
+        .video-card h1 {
+            font-size: 2rem;
+            color: #ffc107;
+            margin: 0;
+        }
+
+        .video-card p {
+            margin: 10px 0;
+        }
+
+        .video-card button {
+            background: #ffc107;
+            color: black;
+            border: none;
+            border-radius: 3px;
+            padding: 0.6rem;
+            cursor: pointer;
+            transition: background 0.4s ease;
+        }
+
+        .video-card button:hover {
+            background: white;
+            color: black;
+        }
+
+        .black-golden-theme {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .black-golden-theme p,
+        .black-golden-theme ul {
+            margin: 0 0 20px;
+        }
+
+        .black-golden-theme ul {
+            padding-left: 20px;
+        }
+
+        .black-golden-theme li {
+            margin-bottom: 10px;
+        }
+
+        .black-golden-theme strong {
+            color: gold;
+        }
+
+        .black-golden-theme a {
+            color: gold;
+            text-decoration: none;
+        }
+
+        .black-golden-theme a:hover {
+            text-decoration: underline;
+        }
+        .heading-center {
+            text-align: center;
+            color: #ffc107;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            margin: 40px 0;
+        }
+        .heading-center h1, .heading-center h2 {
+            font-size: 3rem;
+        }
+        .testimonial {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.testimonial-img {
+    margin-right: 15px;
+}
+
+.testimonial-img img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.testimonial-content {
+    flex: 1;
+}
+
+.testimonial blockquote {
+    border-left: 5px solid #ffc107;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.testimonial footer {
+    text-align: right;
+    font-style: italic;
+    color: #ffc107;
+}
+
+        .transparent-footer {
+            background: #171109;
+            color: #ffffff;
+        }
+
+        .transparent-footer h5 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .transparent-footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .transparent-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="/biol.PNG" alt="Logo" class="navbar-logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/h.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Biography
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/biography.html">Scientific Pioneers</a></li>
+                        <li><a class="dropdown-item" href="/selected work.html">Selected works</a></li>
+                        <li><a class="dropdown-item" href="/researchs (1).html">Researches</a></li>
+                        <li><a class="dropdown-item" href="/awars.html">Awards and Honours</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutus.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact.html">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="welcome-text">
+                <h1>Welcome to BioLegacy Tales</h1>
+                <p>BioLegacy Tales is your gateway to the fascinating world of legendary figures. Dive into the rich histories and amazing contributions of personalities who have left an indelible mark on our world.Others noted that human stories, unlike human genes, aren't just passed down vertically through generations, but horizontally within generations. “They’re passed across societies through trade, exchange, migration, and conquest,” says Tehrani.</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="88630c146df07e79eabd007aee5bf156.jpg" class="d-block w-100" alt="Image 1">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>MARIE-CURIE</h5>
+                           
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="dr1.jpg" class="d-block w-100" alt="Image 2">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>ABDUS-SALAM</h5>
+                            
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="5c6794c031dd7da96bb63be728571686.jpg" class="d-block w-100" alt="Image 3">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>AZIZ-SANCAR</h5>
+                          
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h1 class="heading-center">ABOUT OUR PROJECT</h1>
+    <h2 class="heading-center">INTRODUCTION</h2>
+    <div class="wrapper">
+        <div class="new-card">
+            <img src="mr1.jpg" alt="Personality 1">
+            <div class="info">
+                <h1>MARIE-CURIE</h1>
+                <p> Nobel Prize winner Marie Curie and her extraordinary scientific discoveries through the prism of her marriage to husband Pierre ? and the seismic and transformative effects their discovery of radium had on the 20th century.</p>
+                
+            </div>
+        </div>
+        <div class="new-card">
+            <img src="/dr3.jpg" alt="Personality 2">
+            <div class="info">
+                <h1>ABDUS-SALAM</h1>
+                <p>Dr. Abdus Salam; scientist of Pakistan. Pakistan's only Nobel Prize winner. He is also the first Muslim scientist and only physicist to be awarded the Nobel Prize. Dr. Salam received the prize in 1979 in Stockholm, Sweden.</p>
+                
+            </div>
+        </div>
+        <div class="new-card">
+            <img src="/aziz.jpg" alt="Personality 3">
+            <div class="info">
+                <h1>AZIZ-SANCAR</h1>
+                <p>The Nobel Prize in Chemistry 2015 was awarded jointly to Tomas Lindahl, Paul Modrich and Aziz Sancar "for mechanistic studies of DNA repair"</p>
+               
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Early Life
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                A brief overview of the early life of the personality.
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Selected Works
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                A brief overview of the selected works of the personality.
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Researches
+            </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                A brief overview of the research contributions of the personality.
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Awards and Honours
+            </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                A brief overview of the awards and honors received by the personality. 
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<br>
+<div class="container">
+    <h1 class="heading-center">VIDEO GALLERY</h1>
+    <div class="wrapper">
+        <div class="video-card">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ZEV4KJBJvEg?si=DS9c_M-x3aMozT06" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="info">
+                <h1>MARIE-CURIE</h1>
+                <p>BIOGRAPHY</p>
+                <button>Watch Now</button>
+            </div>
+        </div>
+        <div class="video-card">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/XwxxtqoA9iM?si=6VeMBI2bH4Jqv2EB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="info">
+                <h1>ABDUS-SALAM</h1>
+                <p>BIOGRAPHY</p>
+                <button>Watch Now</button>
+            </div>
+        </div>
+        <div class="video-card">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/sVghiwQ-RM0?si=-SFp_ndjL6fqovu_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="info">
+                <h1>AZIZ-SANCAR</h1>
+                <p>BIOGRAPHY.</p>
+                <button>Watch Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+<BR>
+
+<div class="card transition">
+   
+   
+    <div class="card_circle transition"></div>
+  </div>
+  <div class="container my-5">
+    <h1 class="heading-center">FAQs</h1>
+    <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeadingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne">
+                    What is BioLegacy Tales?
+                </button>
+            </h2>
+            <div id="faqCollapseOne" class="accordion-collapse collapse show" aria-labelledby="faqHeadingOne" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    BioLegacy Tales is a platform dedicated to showcasing the lives and contributions of historical and influential personalities.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeadingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                    How often is the content updated?
+                </button>
+            </h2>
+            <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    We update our content regularly to include the latest information and add new personalities to our collection.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeadingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+                    Can I contribute to the content?
+                </button>
+            </h2>
+            <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Yes, we welcome contributions. Please contact us with your suggestions or content submissions.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<BR>
+    <div class="container my-5">
+        <h1 class="heading-center">Why Choose Us</h1>
+        <div class="content text-center black-golden-theme">
+            <p>At BioLegacy Tales, we offer an unparalleled exploration into the lives of remarkable individuals who have shaped our world. Our platform provides:</p>
+            <ul class="list-unstyled">
+                <li><strong>In-depth Biographies:</strong> Comprehensive profiles that cover the significant achievements and life events of each personality.</li>
+                <li><strong>Visually Engaging Content:</strong> High-quality images, videos, and interactive features to enhance your learning experience.</li>
+                <li><strong>Regular Updates:</strong> Fresh and updated content to ensure that you always have access to the latest information.</li>
+                <li><strong>Community Contributions:</strong> Opportunities for users to contribute their insights and knowledge.</li>
+            </ul>
+        </div>
+    </div>
+    
+    
+        <div class="container my-5">
+            <h1 class="heading-center">Reviews</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <div class="testimonial-img">
+                            <img src="Capture.PNG" alt="Jane Doe">
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>
+                                <p>"BioLegacy Tales has been an incredible resource for learning about historical figures. The content is engaging and well-researched."</p>
+                                <footer>- Jane Doe</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <div class="testimonial-img">
+                            <img src="NN.PNG" alt="John Smith">
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>
+                                <p>"The platform's layout is stunning, and the biographies are detailed and informative. Highly recommend it to anyone interested in history."</p>
+                                <footer>- John Smith</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <div class="testimonial-img">
+                            <img src="YY.PNG" alt="Emily Johnson">
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>
+                                <p>"I've learned so much from BioLegacy Tales. The interactive elements make the experience more immersive and enjoyable."</p>
+                                <footer>- Emily Johnson</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <div class="testimonial-img">
+                            <img src="YYY.PNG" alt="Michael Brown">
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>
+                                <p>"A fantastic resource for educators and students alike. The site's design is both modern and accessible."</p>
+                                <footer>- Michael Brown</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <div class="testimonial-img">
+                            <img src="KK.PNG" alt="Sarah Davis">
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>
+                                <p>"An excellent platform for anyone wanting to dive deep into the lives of influential personalities. The golden theme is a classy touch."</p>
+                                <footer>- Sarah Davis</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <div class="testimonial-img">
+                            <img src="00.PNG" alt="David Wilson">
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>
+                                <p>"The content is always fresh and informative. I love the interactive features and the sleek design."</p>
+                                <footer>- David Wilson</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    <!-- Transparent Footer Section -->
+<footer class="transparent-footer text-white py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h5>About Us</h5>
+                <p>We are dedicated to give you information about the personalities and work together to network and grow.</p>
+            </div>
+            <div class="col-md-3">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="./HOME.HTML" class="text-white">Home</a></li>
+                    <li><a href="./ABOUT.HTML" class="text-white">About Us</a></li>
+                    <li><a href="./SCHEDULE.HTML" class="text-white">Biography</a></li>
+                    <li><a href="./CONTACT.HTML" class="text-white">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Contact Us</h5>
+                <p>Email: <a href="mailto:info@BIOLEGACYTALES.com" class="text-white">info@BIOLEGACYTALES.com</a></p>
+                <p>Phone: <a href="tel:+1234567890" class="text-white">+123 456 7890</a></p>
+            </div>
+            <div class="col-md-3">
+              <h5>Follow Us</h5>
+              <a href="https://www.facebook.com/" class="btn btn-outline-primary btn-sm">Facebook</a>
+              <a href="https://www.instagram.com/" class="btn btn-outline-info btn-sm">Instagram</a>
+              <a href="https://www.youtube.com/c/YourChannel" class="btn btn-outline-danger btn-sm">Youtube</a>
+          </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col text-center">
+                <p class="mt-3 mb-0">© 2024 BIOLEGACY-TALES. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>   
+
+</body>
+</html>a
+
+   
